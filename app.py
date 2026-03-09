@@ -1,11 +1,9 @@
 import streamlit as st
 
 # --- INITIALIZATION ---
-# We use session_state to track which "page" the user is on
 if 'page' not in st.session_state:
     st.session_state.page = "Home"
 
-# Function to change pages
 def ch_page(page_name):
     st.session_state.page = page_name
 
@@ -14,83 +12,95 @@ with st.sidebar:
     st.title("📚 Library Nav")
     st.divider()
     
-    # 4 Sidebar Buttons
     if st.button("🏠 Home", use_container_width=True):
         ch_page("Home")
     
-    # RENAME THESE: Replace "Book Title A" with your actual book name
-    if st.button("tensura", use_container_width=True):
+    # RENAME: Put your actual Book Titles here
+    if st.button("📘 Book Title A", use_container_width=True):
         ch_page("Book A")
         
-    if st.button("hachiman", use_container_width=True):
+    if st.button("📗 Book Title B", use_container_width=True):
         ch_page("Book B")
         
-    if st.button("👤 About Me", use_container_width=True):
+    if st.button("👤 About the Project", use_container_width=True):
         ch_page("About")
 
 # --- PAGE LOGIC ---
 
 # 1. HOME TAB
 if st.session_state.page == "Home":
-    st.title("Welcome Jenwille Robias")
-    st.write("Select a book from the sidebar or use the quick links below:")
+    st.title("🏛️ The Digital Vault")
+    st.markdown("### Welcome to your Technical Resource Center")
+    st.write("Quickly navigate to your favorite series below:")
     
-    col1, col2 = st.columns(2)
-    with col1:
-        if st.button("Open Book Title A ➡️"):
+    # Navigation buttons within the page
+    col_nav1, col_nav2 = st.columns(2)
+    with col_nav1:
+        if st.button("Go to Book Title A ➡️", use_container_width=True):
             ch_page("Book A")
-    with col2:
-        if st.button("Open Book Title B ➡️"):
+    with col_nav2:
+        if st.button("Go to Book Title B ➡️", use_container_width=True):
             ch_page("Book B")
     
-    st.image("https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=1000", caption="Your Library Archive")
+    st.divider()
+    st.image("https://via.placeholder.com/800x300", caption="Digital Library Overview")
 
 # 2. BOOK TITLE A TAB
 elif st.session_state.page == "Book A":
-    st.title("That Time I Got Reincarnated as a slime")
+    st.title("📘 Book Title A")
     
-    col_img, col_txt = st.columns([1, 2])
-    with col_img:
-        # REPLACE URL with your image path or a local file
-        st.image("https://via.placeholder.com/150", caption="Book A Cover")
-    with col_txt:
-        st.subheader("Description")
-        st.write("This is where you describe the content of Book A.")
+    # Space for Book & Author Info
+    st.markdown("#### About the Book")
+    st.write("Insert a detailed summary of Book A here. Mention the core concepts and what the reader will learn.")
+    
+    st.markdown("#### About the Author")
+    st.write("Write a short bio about the creator of this book or report.")
     
     st.divider()
-    st.write("### Resources")
-    # 3 Download Buttons
-    dl1, dl2, dl3 = st.columns(3)
-    dl1.download_button("📥 Full PDF", data="sample", file_name="bookA_full.pdf")
-    dl2.download_button("📥 Summary", data="sample", file_name="bookA_summary.pdf")
-    dl3.download_button("📥 Diagrams", data="sample", file_name="bookA_diagrams.zip")
+    
+    # Layout with Image and Volume Downloads
+    col_img, col_dl = st.columns([1, 2])
+    
+    with col_img:
+        st.image("https://via.placeholder.com/200x280", caption="Book A Series Cover")
+        
+    with col_dl:
+        st.subheader("Download by Volume")
+        # 3 Individual Volume Buttons
+        st.download_button("📥 Download Volume 1", data="sample", file_name="BookA_Vol1.pdf", use_container_width=True)
+        st.download_button("📥 Download Volume 2", data="sample", file_name="BookA_Vol2.pdf", use_container_width=True)
+        st.download_button("📥 Download Volume 3", data="sample", file_name="BookA_Vol3.pdf", use_container_width=True)
 
 # 3. BOOK TITLE B TAB
 elif st.session_state.page == "Book B":
     st.title("📗 Book Title B")
     
-    col_img, col_txt = st.columns([1, 2])
-    with col_img:
-        st.image("https://via.placeholder.com/150", caption="Book B Cover")
-    with col_txt:
-        st.subheader("Description")
-        st.write("Detailed notes for Book B go here.")
-        
+    st.markdown("#### About the Book")
+    st.write("Insert a detailed summary of Book B here.")
+    
+    st.markdown("#### About the Author")
+    st.write("Author details for Book B series.")
+    
     st.divider()
-    st.write("### Resources")
-    # 3 Download Buttons
-    dl1, dl2, dl3 = st.columns(3)
-    dl1.download_button("📥 Full PDF", data="sample", file_name="bookB_full.pdf")
-    dl2.download_button("📥 Summary", data="sample", file_name="bookB_summary.pdf")
-    dl3.download_button("📥 Charts", data="sample", file_name="bookB_charts.png")
+    
+    col_img, col_dl = st.columns([1, 2])
+    
+    with col_img:
+        st.image("https://via.placeholder.com/200x280", caption="Book B Series Cover")
+        
+    with col_dl:
+        st.subheader("Download by Volume")
+        st.download_button("📥 Download Volume 1", data="sample", file_name="BookB_Vol1.pdf", use_container_width=True)
+        st.download_button("📥 Download Volume 2", data="sample", file_name="BookB_Vol2.pdf", use_container_width=True)
+        st.download_button("📥 Download Volume 3", data="sample", file_name="BookB_Vol3.pdf", use_container_width=True)
 
-# 4. ABOUT ME TAB (Requirement Check)
+# 4. ABOUT THE PROJECT (Mandatory Requirement)
 elif st.session_state.page == "About":
-    st.title("👤 About the Project")
+    st.title("👤 Project Documentation")
     st.info("""
-    - **Use-Case:** Academic Digital Library for peer resource sharing.
-    - **Target User:** Students in the Networking/IT department.
-    - **Inputs:** Navigation clicks and download requests.
-    - **Outputs:** Displayed book metadata and downloadable PDF assets.
+    - **Use-Case:** A structured digital library for multi-volume technical documentation.
+    - **Target User:** Students and researchers needing specific volume access.
+    - **Inputs:** Sidebar navigation buttons and file download requests.
+    - **Outputs:** Specific PDF volumes and contextual author information.
     """)
-    st.write("Developed by **Robz**.")
+    st.success("App Architecture: Session State Navigation with Multi-Component layout.")
