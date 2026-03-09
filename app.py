@@ -44,7 +44,7 @@ if st.session_state.page == "Home":
             
     with col_nav2:
         # Use your actual filename here
-        st.image("oregairu_cover.jpg", use_container_width=True)
+        st.image("oregairu_home_page_cover.jpg", use_container_width=True)
         if st.button("Oregairu", use_container_width=True):
             ch_page("Book B")
     
