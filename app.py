@@ -1,87 +1,96 @@
 import streamlit as st
-import time
 
-# --- 1. SIDEBAR (Required: About Section) ---
+# --- INITIALIZATION ---
+# We use session_state to track which "page" the user is on
+if 'page' not in st.session_state:
+    st.session_state.page = "Home"
+
+# Function to change pages
+def ch_page(page_name):
+    st.session_state.page = page_name
+
+# --- SIDEBAR NAVIGATION ---
 with st.sidebar:
-    st.title("📌 App Information")
-    
-    # Requirement 4: What the app does, target user, and inputs/outputs
-    with st.expander("📖 About this App", expanded=True):
-        st.write("""
-        **Use-Case:** A Digital Resource Hub for Networking students to manage files and calculate network stats.
-        **Target User:** IT Students and Network Administrators.
-        **Inputs:** Text, numbers, files, and configuration toggles.
-        **Outputs:** Downloadable PDFs, calculated network metrics, and status reports.
-        """)
-    
+    st.title("📚 Library Nav")
     st.divider()
-    st.info("Created by: Robz")
-    # Component: Sidebar Image/Logo (Merit point potential)
-    st.image("https://cdn-icons-png.flaticon.com/512/2232/2232688.png", width=100)
-
-# --- 2. MAIN UI FLOW ---
-st.title("🌐 Technical Digital Library & Toolset")
-
-# Using Tabs (Advanced Component for Merit)
-tab1, tab2, tab3 = st.tabs(["📚 Library", "⚙️ Network Tools", "📊 System Status"])
-
-with tab1:
-    st.header("Document Repository")
-    st.caption("Select a category to view available PDFs.")
     
-    # Components: Selectbox, Radio, and Download Button
-    category = st.selectbox("Document Category", ["Networking", "Cloud Computing", "Security"])
-    doc_type = st.radio("File Format", ["Standard PDF", "Compressed", "Markdown"])
+    # 4 Sidebar Buttons
+    if st.button("🏠 Home", use_container_width=True):
+        ch_page("Home")
     
-    # Component: Download Button (Functional)
-    st.download_button(label="📥 Download Syllabus", data="Sample content", file_name="syllabus.pdf")
-    
-    # Component: File Uploader (Merit point - interacts with files)
-    uploaded_file = st.file_uploader("Contribute a document to the library")
-    if uploaded_file:
-        st.success("File ready for processing!")
+    # RENAME THESE: Replace "Book Title A" with your actual book name
+    if st.button("tensura", use_container_width=True):
+        ch_page("Book A")
+        
+    if st.button("hachiman", use_container_width=True):
+        ch_page("Book B")
+        
+    if st.button("👤 About Me", use_container_width=True):
+        ch_page("About")
 
-with tab2:
-    st.header("Network Calculator")
+# --- PAGE LOGIC ---
+
+# 1. HOME TAB
+if st.session_state.page == "Home":
+    st.title("Welcome Jenwille Robias")
+    st.write("Select a book from the sidebar or use the quick links below:")
     
-    # Components: Columns, Number Input, Text Input, Slider
     col1, col2 = st.columns(2)
     with col1:
-        ip_addr = st.text_input("Enter Base IP Address", placeholder="192.168.1.1")
-        nodes = st.number_input("Number of Nodes", min_value=1, max_value=254)
+        if st.button("Open Book Title A ➡️"):
+            ch_page("Book A")
     with col2:
-        subnet = st.select_slider("Subnet Mask", options=["/24", "/26", "/28", "/30"])
-        priority = st.select_slider("Traffic Priority", options=["Low", "Medium", "High"])
-
-    # Component: Color Picker (For UI Customization)
-    theme = st.color_picker("Customize UI Accent", "#00f900")
+        if st.button("Open Book Title B ➡️"):
+            ch_page("Book B")
     
-    # Component: Checkbox and Toggle (Merit point: Toggle is a newer component)
-    monitor = st.checkbox("Enable Real-time Monitoring")
-    secure_mode = st.toggle("Enable Stealth Mode")
+    st.image("https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=1000", caption="Your Library Archive")
 
-    if st.button("🚀 Calculate Network Load"):
-        # Component: Progress Bar & Spinner (Merit points for "Motion" UI)
-        with st.spinner('Calculating...'):
-            my_bar = st.progress(0)
-            for p in range(100):
-                time.sleep(0.01)
-                my_bar.progress(p + 1)
-        st.balloons()
-        st.write(f"Network configured for {nodes} nodes on {subnet} with {theme} branding.")
-
-with tab3:
-    st.header("Live Metrics")
-    # Components: Metrics (Advanced UI)
-    m1, m2, m3 = st.columns(3)
-    m1.metric("Server Uptime", "99.9%", "0.2%")
-    m2.metric("Latency", "24ms", "-2ms")
-    m3.metric("Users Active", "6", "+1")
+# 2. BOOK TITLE A TAB
+elif st.session_state.page == "Book A":
+    st.title("That Time I Got Reincarnated as a slime")
     
-    # Component: Text Area and Date Input
-    st.date_input("Schedule Maintenance")
-    st.text_area("Admin Notes", "Current AWS report is in version 2.4...")
+    col_img, col_txt = st.columns([1, 2])
+    with col_img:
+        # REPLACE URL with your image path or a local file
+        st.image("https://via.placeholder.com/150", caption="Book A Cover")
+    with col_txt:
+        st.subheader("Description")
+        st.write("This is where you describe the content of Book A.")
+    
+    st.divider()
+    st.write("### Resources")
+    # 3 Download Buttons
+    dl1, dl2, dl3 = st.columns(3)
+    dl1.download_button("📥 Full PDF", data="sample", file_name="bookA_full.pdf")
+    dl2.download_button("📥 Summary", data="sample", file_name="bookA_summary.pdf")
+    dl3.download_button("📥 Diagrams", data="sample", file_name="bookA_diagrams.zip")
 
-st.markdown("---")
-# Component: Status Message
-st.status("System Operational", state="complete")
+# 3. BOOK TITLE B TAB
+elif st.session_state.page == "Book B":
+    st.title("📗 Book Title B")
+    
+    col_img, col_txt = st.columns([1, 2])
+    with col_img:
+        st.image("https://via.placeholder.com/150", caption="Book B Cover")
+    with col_txt:
+        st.subheader("Description")
+        st.write("Detailed notes for Book B go here.")
+        
+    st.divider()
+    st.write("### Resources")
+    # 3 Download Buttons
+    dl1, dl2, dl3 = st.columns(3)
+    dl1.download_button("📥 Full PDF", data="sample", file_name="bookB_full.pdf")
+    dl2.download_button("📥 Summary", data="sample", file_name="bookB_summary.pdf")
+    dl3.download_button("📥 Charts", data="sample", file_name="bookB_charts.png")
+
+# 4. ABOUT ME TAB (Requirement Check)
+elif st.session_state.page == "About":
+    st.title("👤 About the Project")
+    st.info("""
+    - **Use-Case:** Academic Digital Library for peer resource sharing.
+    - **Target User:** Students in the Networking/IT department.
+    - **Inputs:** Navigation clicks and download requests.
+    - **Outputs:** Displayed book metadata and downloadable PDF assets.
+    """)
+    st.write("Developed by **Robz**.")
