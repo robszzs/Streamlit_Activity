@@ -51,7 +51,7 @@ if st.session_state.page == "Home":
                 ch_page("Book B")
     
     st.divider()
-    st.image("https://via.placeholder.com/800x300", caption="Digital Library Overview")
+    st.image("kitty_banner.jpg", caption="Digital Library Overview")
 
 # 2. BOOK TITLE A TAB
 elif st.session_state.page == "Book A":
