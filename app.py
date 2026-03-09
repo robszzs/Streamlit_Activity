@@ -34,19 +34,21 @@ if st.session_state.page == "Home":
     st.write("Quickly navigate to your favorite series below:")
     
     # Navigation buttons within the page
+    # Navigation buttons with images
     col_nav1, col_nav2 = st.columns(2)
     
     with col_nav1:
-        # Use your actual filename here
-        st.image("slime_home_page_cover.jpg", use_container_width=True) 
-        if st.button("That time i got reincarnated as a slime", use_container_width=True):
-            ch_page("Book A")
+        # container keeps the image and button grouped
+        with st.container():
+            st.image("slime_cover.jpg", use_container_width=True) 
+            if st.button("That time i got reincarnated as a slime", use_container_width=True):
+                ch_page("Book A")
             
     with col_nav2:
-        # Use your actual filename here
-        st.image("oregairu_home_page_cover.jpg", use_container_width=True)
-        if st.button("Oregairu", use_container_width=True):
-            ch_page("Book B")
+        with st.container():
+            st.image("oregairu_cover.jpg", use_container_width=True)
+            if st.button("Oregairu", use_container_width=True):
+                ch_page("Book B")
     
     st.divider()
     st.image("https://via.placeholder.com/800x300", caption="Digital Library Overview")
