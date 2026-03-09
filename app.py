@@ -9,17 +9,17 @@ def ch_page(page_name):
 
 # --- SIDEBAR NAVIGATION ---
 with st.sidebar:
-    st.title("📚 Library Nav")
+    st.title("My Library")
     st.divider()
     
-    if st.button("🏠 Home", use_container_width=True):
+    if st.button("Home", use_container_width=True):
         ch_page("Home")
     
     # RENAME: Put your actual Book Titles here
-    if st.button("📘 Book Title A", use_container_width=True):
+    if st.button("That time i got reincarnated as a slime", use_container_width=True):
         ch_page("Book A")
         
-    if st.button("📗 Book Title B", use_container_width=True):
+    if st.button("Oregairu", use_container_width=True):
         ch_page("Book B")
         
     if st.button("👤 About the Project", use_container_width=True):
@@ -29,17 +29,17 @@ with st.sidebar:
 
 # 1. HOME TAB
 if st.session_state.page == "Home":
-    st.title("🏛️ The Digital Vault")
-    st.markdown("### Welcome to your Technical Resource Center")
+    st.title("Library")
+    st.markdown("Read what you want boss")
     st.write("Quickly navigate to your favorite series below:")
     
     # Navigation buttons within the page
     col_nav1, col_nav2 = st.columns(2)
     with col_nav1:
-        if st.button("Go to Book Title A ➡️", use_container_width=True):
+        if st.button("That time i got reincarnated as a slime", use_container_width=True):
             ch_page("Book A")
     with col_nav2:
-        if st.button("Go to Book Title B ➡️", use_container_width=True):
+        if st.button("Oregairu", use_container_width=True):
             ch_page("Book B")
     
     st.divider()
