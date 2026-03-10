@@ -19,7 +19,7 @@ with st.sidebar:
     if st.button("That time i got reincarnated as a slime", use_container_width=True):
         ch_page("Book A")
         
-    if st.button("Oregairu", use_container_width=True):
+    if st.button("All the Lovers in the Night", use_container_width=True):
         ch_page("Book B")
         
     if st.button("About the Project", use_container_width=True):
@@ -46,13 +46,12 @@ if st.session_state.page == "Home":
             
     with col_nav2:
         with st.container():
-            st.image("images/oregairu_home_page_cover.jpg", use_container_width=True)
-            if st.button("Oregairu", use_container_width=True):
+            st.image("images/lovers_in_the_night.jpg", use_container_width=True)
+            if st.button("All the Lovers in the Night", use_container_width=True):
                 ch_page("Book B")
     
     st.divider()
-    st.image("images/kitty_banner.jpg", caption="This project is still under development" \
-    "i made this cause i really want to make something like this before to be honest :3")
+    st.image("images/kitty_banner.jpg", caption="This project is still under development. I made this cause i want to make something like this before tbh :3")
 
 # 2. BOOK TITLE A TAB
 elif st.session_state.page == "Book A":
@@ -95,28 +94,40 @@ elif st.session_state.page == "Book A":
             st.error("Check your filenames! The PDFs weren't found in 'tensura_pdfs'.")
         # --- PASTE END ---
 
+
+
 # 3. BOOK TITLE B TAB
 elif st.session_state.page == "Book B":
-    st.title("📗 Book Title B")
+    st.title("All the Lovers in the Night")
     
     st.markdown("#### About the Book")
-    st.write("Insert a detailed summary of Book B here.")
+    st.write("a quiet, poignant novel about Fuyuko Irie, a lonely 34-year-old freelance proofreader in Tokyo. After realizing her life is void of connection, she begins a journey of self-discovery, fueled by a new, intense friendship with an older teacher named Mitsutsuka, leading her to confront her past traumas and emotional isolation.")
     
     st.markdown("#### About the Author")
-    st.write("Author details for Book B series.")
+    st.write("Mieko Kawakami")
     
     st.divider()
     
     col_img, col_dl = st.columns([1, 2])
     
-    with col_img:
-        st.image("https://via.placeholder.com/200x280", caption="Book B Series Cover")
-        
     with col_dl:
-        st.subheader("Download by Volume")
-        st.download_button("📥 Download Volume 1", data="sample", file_name="BookB_Vol1.pdf", use_container_width=True)
-        st.download_button("📥 Download Volume 2", data="sample", file_name="BookB_Vol2.pdf", use_container_width=True)
-        st.download_button("📥 Download Volume 3", data="sample", file_name="BookB_Vol3.pdf", use_container_width=True)
+        st.subheader("Download Book")
+        
+        # --- PASTE START ---
+        try:
+            # Open and read the actual files from your 'tensura_pdfs' folder
+            with open("Mieko_pdf/All the Lovers in the Night", "rb") as f1:
+                pdf_v1 = f1.read()
+         
+
+            # The buttons now use the 'pdf_v' variables instead of "sample"
+            st.download_button("Volume 1", data=pdf_v1, file_name="All the Lovers in the Night.pdf", use_container_width=True)
+
+
+        except FileNotFoundError:
+            st.error("Check your filenames! The PDFs weren't found in 'All the Lovers in the Night.pdf'.")
+        # --- PASTE END ---
+
 
 # 4. ABOUT THE PROJECT (Mandatory Requirement)
 elif st.session_state.page == "About":
