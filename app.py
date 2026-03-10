@@ -63,6 +63,10 @@ elif st.session_state.page == "Book A":
     
     st.markdown("#### Author")
     st.write("Fuse")
+
+    # In Book A or B
+    st.metric(label="Available Volumes", value="3", delta="New Release") # Extra Component: st.metric
+    st.caption("Rating: ⭐⭐⭐⭐⭐") # Extra Component: st.caption
     
     st.divider()
     
