@@ -96,7 +96,16 @@ elif st.session_state.page == "Book A":
 
         except FileNotFoundError:
             st.error("Check your filenames! The PDFs weren't found in 'tensura_pdfs'.")
-        # --- PASTE END ---
+
+            
+        st.divider()
+    # Using a column to center it or keep it to one side
+    col_back, _ = st.columns([1, 3])
+    with col_back:
+        if st.button("Back to Home", use_container_width=True):
+            ch_page("Home")
+            st.rerun() # Forces the app to refresh and show the Home page immediately
+
 
 
 
@@ -107,7 +116,7 @@ elif st.session_state.page == "Book B":
     st.markdown("#### About the Book")
     st.write("a quiet, poignant novel about Fuyuko Irie, a lonely 34-year-old freelance proofreader in Tokyo. After realizing her life is void of connection, she begins a journey of self-discovery, fueled by a new, intense friendship with an older teacher named Mitsutsuka, leading her to confront her past traumas and emotional isolation.")
     
-    st.markdown("#### About the Author")
+    st.markdown("####Author")
     st.write("Mieko Kawakami")
     
     st.metric(label="Available Volumes", value="1", delta="New Release") # Extra Component: st.metric
@@ -136,17 +145,23 @@ elif st.session_state.page == "Book B":
 
         except FileNotFoundError:
             st.error("Check your filenames! The PDFs weren't found in 'Mieko_pdf folder'.")
-        # --- PASTE END ---
+      
+st.divider()
+    # Using a column to center it or keep it to one side
+col_back, _ = st.columns([1, 3])
+with col_back:
+        if st.button("Back to Home", use_container_width=True):
+            ch_page("Home")
+            st.rerun() # Forces the app to refresh and show the Home page immediately
 
 
-# 4. ABOUT THE PROJECT (Mandatory Requirement)
-elif st.session_state.page == "About":
-    st.title("Project Documentation")
+# 4. ABOUT THE PROJECT
+        elif st.session_state.page == "About":
+            st.title("Project Documentation") # Ensure this is indented!
     
-    # Extra Component: st.warning
-    st.warning("Note: This app is optimized for desktop viewing.")
+st.warning("Note: This app is optimized for desktop viewing.")
     
-    with st.expander("System Architecture Details"): # Extra Component: st.expander
+with st.expander("System Architecture Details"):
         st.write("""
         - **What it does:** Provides a secure, navigable portal for accessing Light Novel volumes.
         - **Target User:** Student researchers and digital librarians.
