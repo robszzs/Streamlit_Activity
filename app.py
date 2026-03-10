@@ -159,6 +159,9 @@ elif st.session_state.page == "About":
     
     st.warning("Note: This app is optimized for desktop viewing.")
     
+    st.write("""Name: jenwille John V. Robias
+             ICS-01-401A""")
+
     with st.expander("System Architecture Details"):
         st.write("""
         - **What it does:** Provides a secure, navigable portal for accessing Light Novel volumes.
@@ -167,8 +170,7 @@ elif st.session_state.page == "About":
         - **Outputs:** Rendered image assets, formatted metadata, and PDF byte-streams.
         """)
 
-        st.write("Name:Jenwille John V. Robias" \
-        "ICS 01-401A")
+        
     
     st.divider()
     col_back, _ = st.columns([1, 3])
