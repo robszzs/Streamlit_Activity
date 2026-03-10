@@ -1,6 +1,6 @@
-st.markdown("<div id='linkto_top'></div>", unsafe_allow_html=True)
-
 import streamlit as st
+
+st.markdown("<div id='linkto_top'></div>", unsafe_allow_html=True)
 
 # --- INITIALIZATION ---
 if 'page' not in st.session_state:
