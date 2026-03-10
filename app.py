@@ -59,10 +59,10 @@ elif st.session_state.page == "Book A":
     
     # Space for Book & Author Info
     st.markdown("#### About the Book")
-    st.write("Insert a detailed summary of Book A here. Mention the core concepts and what the reader will learn.")
+    st.write("Lonely thirty-seven-year-old Satoru Mikami is stuck in a dead-end job, unhappy with their mundane life, but after dying at the hands of a robber, they awaken to a fresh start in a fantasy realm... as a slime! As Rimuru acclimates to their goopy new existence, their exploits with the other monsters set off a chain of events that will change the world forever!")
     
-    st.markdown("#### About the Author")
-    st.write("Write a short bio about the creator of this book or report.")
+    st.markdown("#### Author")
+    st.write("Fuse")
     
     st.divider()
     
