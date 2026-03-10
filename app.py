@@ -166,6 +166,9 @@ elif st.session_state.page == "About":
         - **Inputs:** Navigation button triggers, session state keys, and binary file requests.
         - **Outputs:** Rendered image assets, formatted metadata, and PDF byte-streams.
         """)
+
+        st.write("Name:Jenwille John V. Robias" \
+        "ICS 01-401A")
     
     st.divider()
     col_back, _ = st.columns([1, 3])
