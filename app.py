@@ -1,3 +1,5 @@
+st.markdown("<div id='linkto_top'></div>", unsafe_allow_html=True)
+
 import streamlit as st
 
 # --- INITIALIZATION ---
@@ -102,9 +104,9 @@ elif st.session_state.page == "Book A":
     # Using a column to center it or keep it to one side
     col_back, _ = st.columns([1, 3])
     with col_back:
-        if st.button("Back to Home", use_container_width=True):
+        if st.button("Back to Home", key="back_button_unique", use_container_width=True):
             ch_page("Home")
-            st.rerun() # Forces the app to refresh and show the Home page immediately
+            st.rerun() # This forces a clean state refresh
 
 
 
@@ -149,9 +151,9 @@ elif st.session_state.page == "Book B":
         st.divider()
         col_back, _ = st.columns([1, 3])
         with col_back:
-            if st.button("Back to Home", key="back_b", use_container_width=True):
+            if st.button("Back to Home", key="back_button_unique", use_container_width=True):
                 ch_page("Home")
-                st.rerun()
+                st.rerun() # This forces a clean state refresh
 
 # 4. ABOUT THE PROJECT (Ensure this is aligned with 'if' and 'elif' above)
 elif st.session_state.page == "About":
