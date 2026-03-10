@@ -110,6 +110,9 @@ elif st.session_state.page == "Book B":
     st.markdown("#### About the Author")
     st.write("Mieko Kawakami")
     
+    st.metric(label="Available Volumes", value="1", delta="New Release") # Extra Component: st.metric
+    st.caption("Rating: ⭐⭐⭐⭐⭐") # Extra Component: st.caption
+
     st.divider()
     
     col_img, col_dl = st.columns([1, 2])
@@ -132,13 +135,13 @@ elif st.session_state.page == "Book B":
 
 
         except FileNotFoundError:
-            st.error("Check your filenames! The PDFs weren't found in 'All the Lovers in the Night.pdf'.")
+            st.error("Check your filenames! The PDFs weren't found in 'Mieko_pdf folder'.")
         # --- PASTE END ---
 
 
 # 4. ABOUT THE PROJECT (Mandatory Requirement)
 elif st.session_state.page == "About":
-    st.title("👤 Project Documentation")
+    st.title("Project Documentation")
     
     # Extra Component: st.warning
     st.warning("Note: This app is optimized for desktop viewing.")
