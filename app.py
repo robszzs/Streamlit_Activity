@@ -74,10 +74,25 @@ elif st.session_state.page == "Book A":
         
     with col_dl:
         st.subheader("Download Volumes")
-        # 3 Individual Volume Buttons
-        st.download_button("Volume 1", data="sample", file_name="BookA_Vol1.pdf", use_container_width=True)
-        st.download_button("Volume 2", data="sample", file_name="BookA_Vol2.pdf", use_container_width=True)
-        st.download_button("Volume 3", data="sample", file_name="BookA_Vol3.pdf", use_container_width=True)
+        
+        # --- PASTE START ---
+        try:
+            # Open and read the actual files from your 'tensura_pdfs' folder
+            with open("tensura_pdfs/Your_Exact_Filename_V1.pdf", "rb") as f1:
+                pdf_v1 = f1.read()
+            with open("tensura_pdfs/Your_Exact_Filename_V2.pdf", "rb") as f2:
+                pdf_v2 = f2.read()
+            with open("tensura_pdfs/Your_Exact_Filename_V3.pdf", "rb") as f3:
+                pdf_v3 = f3.read()
+
+            # The buttons now use the 'pdf_v' variables instead of "sample"
+            st.download_button("📥 Volume 1", data=pdf_v1, file_name="Slime_Vol1.pdf", use_container_width=True)
+            st.download_button("📥 Volume 2", data=pdf_v2, file_name="Slime_Vol2.pdf", use_container_width=True)
+            st.download_button("📥 Volume 3", data=pdf_v3, file_name="Slime_Vol3.pdf", use_container_width=True)
+
+        except FileNotFoundError:
+            st.error("Check your filenames! The PDFs weren't found in 'tensura_pdfs'.")
+        # --- PASTE END ---
 
 # 3. BOOK TITLE B TAB
 elif st.session_state.page == "Book B":
