@@ -159,8 +159,7 @@ elif st.session_state.page == "About":
     
     st.warning("Note: This app is optimized for desktop viewing.")
     
-    st.write("""Name: jenwille John V. Robias 
-             ICS-01-401A""")
+    st.write("Name: jenwille John V. Robias \n\n ICS-01-401A")
 
     with st.expander("System Architecture Details"):
         st.write("""
