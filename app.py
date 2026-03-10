@@ -78,11 +78,11 @@ elif st.session_state.page == "Book A":
         # --- PASTE START ---
         try:
             # Open and read the actual files from your 'tensura_pdfs' folder
-            with open("tensura_pdfs/Your_Exact_Filename_V1.pdf", "rb") as f1:
+            with open("tensura_pdfs/That Time I Got Reincarnated as a Slime Vol 1.pdf", "rb") as f1:
                 pdf_v1 = f1.read()
-            with open("tensura_pdfs/Your_Exact_Filename_V2.pdf", "rb") as f2:
+            with open("tensura_pdfs/That Time I Got Reincarnated as a Slime Vol 2.pdf", "rb") as f2:
                 pdf_v2 = f2.read()
-            with open("tensura_pdfs/Your_Exact_Filename_V3.pdf", "rb") as f3:
+            with open("tensura_pdfs/That Time I Got Reincarnated as a Slime Vol 3.pdf", "rb") as f3:
                 pdf_v3 = f3.read()
 
             # The buttons now use the 'pdf_v' variables instead of "sample"
