@@ -124,7 +124,7 @@ elif st.session_state.page == "Book B":
          
 
             # The buttons now use the 'pdf_v' variables instead of "sample"
-            st.download_button("Book", data=pdf_v1, file_name="All the Lovers in the Night.pdf", use_container_width=True)
+            st.download_button("Download", data=pdf_v1, file_name="All the Lovers in the Night.pdf", use_container_width=True)
 
 
         except FileNotFoundError:
