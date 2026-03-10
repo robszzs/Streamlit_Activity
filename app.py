@@ -139,10 +139,14 @@ elif st.session_state.page == "Book B":
 # 4. ABOUT THE PROJECT (Mandatory Requirement)
 elif st.session_state.page == "About":
     st.title("👤 Project Documentation")
-    st.info("""
-    - **Use-Case:** A structured digital library for multi-volume technical documentation.
-    - **Target User:** Students and researchers needing specific volume access.
-    - **Inputs:** Sidebar navigation buttons and file download requests.
-    - **Outputs:** Specific PDF volumes and contextual author information.
-    """)
-    st.success("App Architecture: Session State Navigation with Multi-Component layout.")
+    
+    # Extra Component: st.warning
+    st.warning("Note: This app is optimized for desktop viewing.")
+    
+    with st.expander("System Architecture Details"): # Extra Component: st.expander
+        st.write("""
+        - **What it does:** Provides a secure, navigable portal for accessing Light Novel volumes.
+        - **Target User:** Student researchers and digital librarians.
+        - **Inputs:** Navigation button triggers, session state keys, and binary file requests.
+        - **Outputs:** Rendered image assets, formatted metadata, and PDF byte-streams.
+        """)
