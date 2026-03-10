@@ -37,21 +37,18 @@ if st.session_state.page == "Home":
     # Navigation buttons with images
     col_nav1, col_nav2 = st.columns(2)
     
-    # Navigation buttons with images
-    col_nav1, col_nav2 = st.columns(2)
-    
     with col_nav1:
-     
-        st.image("images/slime_home_page_cover.jpg", use_container_width=True) 
-        if st.button("That time i got reincarnated as a slime", use_container_width=True, key="btn_slime"):
-            ch_page("Book A")
-            st.rerun()
+        # container keeps the image and button grouped
+        with st.container():
+            st.image("images/slime_home_page_cover.jpg", use_container_width=True) 
+            if st.button("That time i got reincarnated as a slime", use_container_width=True):
+                ch_page("Book A")
             
     with col_nav2:
-        st.image("images/lovers_in_the_night.jpg", use_container_width=True)
-        if st.button("All the Lovers in the Night", use_container_width=True, key="btn_lovers"):
-            ch_page("Book B")
-            st.rerun()
+        with st.container():
+            st.image("images/lovers_in_the_night.jpg", use_container_width=True)
+            if st.button("All the Lovers in the Night", use_container_width=True):
+                ch_page("Book B")
     
     st.divider()
     st.image("images/kitty_banner.jpg", caption="This project is still under development")
