@@ -51,7 +51,7 @@ if st.session_state.page == "Home":
                 ch_page("Book B")
     
     st.divider()
-    st.image("images/kitty_banner.jpg", caption="This project is still under development. I made this cause i want to make something like this before tbh :3")
+    st.image("images/kitty_banner.jpg", caption="This project is still under development")
 
 # 2. BOOK TITLE A TAB
 elif st.session_state.page == "Book A":
