@@ -40,18 +40,18 @@ if st.session_state.page == "Home":
     with col_nav1:
         # container keeps the image and button grouped
         with st.container():
-            st.image("slime_home_page_cover.jpg", use_container_width=True) 
+            st.image("images/slime_home_page_cover.jpg", use_container_width=True) 
             if st.button("That time i got reincarnated as a slime", use_container_width=True):
                 ch_page("Book A")
             
     with col_nav2:
         with st.container():
-            st.image("oregairu_home_page_cover.jpg", use_container_width=True)
+            st.image("images/oregairu_home_page_cover.jpg", use_container_width=True)
             if st.button("Oregairu", use_container_width=True):
                 ch_page("Book B")
     
     st.divider()
-    st.image("kitty_banner.jpg", caption="more books to come")
+    st.image("images/kitty_banner.jpg", caption="more books to come")
 
 # 2. BOOK TITLE A TAB
 elif st.session_state.page == "Book A":
@@ -70,14 +70,14 @@ elif st.session_state.page == "Book A":
     col_img, col_dl = st.columns([1, 2])
     
     with col_img:
-        st.image("slime_home_page_cover.jpg", caption="Book A Series Cover")
+        st.image("images/slime_home_page_cover.jpg", caption="That time i got reincarnated as a slime")
         
     with col_dl:
-        st.subheader("Download by Volume")
+        st.subheader("Download Volumes")
         # 3 Individual Volume Buttons
-        st.download_button("📥 Download Volume 1", data="sample", file_name="BookA_Vol1.pdf", use_container_width=True)
-        st.download_button("📥 Download Volume 2", data="sample", file_name="BookA_Vol2.pdf", use_container_width=True)
-        st.download_button("📥 Download Volume 3", data="sample", file_name="BookA_Vol3.pdf", use_container_width=True)
+        st.download_button("Volume 1", data="sample", file_name="BookA_Vol1.pdf", use_container_width=True)
+        st.download_button("Volume 2", data="sample", file_name="BookA_Vol2.pdf", use_container_width=True)
+        st.download_button("Volume 3", data="sample", file_name="BookA_Vol3.pdf", use_container_width=True)
 
 # 3. BOOK TITLE B TAB
 elif st.session_state.page == "Book B":
