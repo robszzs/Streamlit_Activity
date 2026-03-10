@@ -146,25 +146,30 @@ elif st.session_state.page == "Book B":
         except FileNotFoundError:
             st.error("Check your filenames! The PDFs weren't found in 'Mieko_pdf folder'.")
       
-st.divider()
-    # Using a column to center it or keep it to one side
-col_back, _ = st.columns([1, 3])
-with col_back:
-        if st.button("Back to Home", use_container_width=True):
-            ch_page("Home")
-            st.rerun() # Forces the app to refresh and show the Home page immediately
+        st.divider()
+        col_back, _ = st.columns([1, 3])
+        with col_back:
+            if st.button("Back to Home", key="back_b", use_container_width=True):
+                ch_page("Home")
+                st.rerun()
 
-
-# 4. ABOUT THE PROJECT
-        elif st.session_state.page == "About":
-            st.title("Project Documentation") # Ensure this is indented!
+# 4. ABOUT THE PROJECT (Ensure this is aligned with 'if' and 'elif' above)
+elif st.session_state.page == "About":
+    st.title("Project Documentation")
     
-st.warning("Note: This app is optimized for desktop viewing.")
+    st.warning("Note: This app is optimized for desktop viewing.")
     
-with st.expander("System Architecture Details"):
+    with st.expander("System Architecture Details"):
         st.write("""
         - **What it does:** Provides a secure, navigable portal for accessing Light Novel volumes.
         - **Target User:** Student researchers and digital librarians.
         - **Inputs:** Navigation button triggers, session state keys, and binary file requests.
         - **Outputs:** Rendered image assets, formatted metadata, and PDF byte-streams.
         """)
+    
+    st.divider()
+    col_back, _ = st.columns([1, 3])
+    with col_back:
+        if st.button("Back to Home", key="back_about", use_container_width=True):
+            ch_page("Home")
+            st.rerun()
