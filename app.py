@@ -86,9 +86,9 @@ elif st.session_state.page == "Book A":
                 pdf_v3 = f3.read()
 
             # The buttons now use the 'pdf_v' variables instead of "sample"
-            st.download_button("📥 Volume 1", data=pdf_v1, file_name="Slime_Vol1.pdf", use_container_width=True)
-            st.download_button("📥 Volume 2", data=pdf_v2, file_name="Slime_Vol2.pdf", use_container_width=True)
-            st.download_button("📥 Volume 3", data=pdf_v3, file_name="Slime_Vol3.pdf", use_container_width=True)
+            st.download_button("📥 Volume 1", data=pdf_v1, file_name="That Time I Got Reincarnated as a Slime Vol 1.pdf", use_container_width=True)
+            st.download_button("📥 Volume 2", data=pdf_v2, file_name="That Time I Got Reincarnated as a Slime Vol 2.pdf", use_container_width=True)
+            st.download_button("📥 Volume 3", data=pdf_v3, file_name="That Time I Got Reincarnated as a Slime Vol 3.pdf", use_container_width=True)
 
         except FileNotFoundError:
             st.error("Check your filenames! The PDFs weren't found in 'tensura_pdfs'.")
