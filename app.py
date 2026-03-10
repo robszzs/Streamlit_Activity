@@ -70,7 +70,7 @@ elif st.session_state.page == "Book A":
     col_img, col_dl = st.columns([1, 2])
     
     with col_img:
-        st.image("https://via.placeholder.com/200x280", caption="Book A Series Cover")
+        st.image("slime_home_page_cover.jpg", caption="Book A Series Cover")
         
     with col_dl:
         st.subheader("Download by Volume")
