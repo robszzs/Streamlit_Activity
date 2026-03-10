@@ -116,12 +116,12 @@ elif st.session_state.page == "Book B":
         # --- PASTE START ---
         try:
             # Open and read the actual files from your 'tensura_pdfs' folder
-            with open("Mieko_pdf/All the Lovers in the Night", "rb") as f1:
+            with open("Mieko_pdf/All the Lovers in the Night.pdf", "rb") as f1:
                 pdf_v1 = f1.read()
          
 
             # The buttons now use the 'pdf_v' variables instead of "sample"
-            st.download_button("Volume 1", data=pdf_v1, file_name="All the Lovers in the Night.pdf", use_container_width=True)
+            st.download_button("Book", data=pdf_v1, file_name="All the Lovers in the Night.pdf", use_container_width=True)
 
 
         except FileNotFoundError:
