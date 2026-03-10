@@ -22,7 +22,7 @@ with st.sidebar:
     if st.button("Oregairu", use_container_width=True):
         ch_page("Book B")
         
-    if st.button("👤 About the Project", use_container_width=True):
+    if st.button("About the Project", use_container_width=True):
         ch_page("About")
 
 # --- PAGE LOGIC ---
@@ -30,10 +30,10 @@ with st.sidebar:
 # 1. HOME TAB
 if st.session_state.page == "Home":
     st.title("Library")
-    st.markdown("Read what you want boss")
+    st.markdown("Read some samples below")
     st.write("Quickly navigate to your favorite series below:")
     
-    # Navigation buttons within the page
+
     # Navigation buttons with images
     col_nav1, col_nav2 = st.columns(2)
     
@@ -51,11 +51,11 @@ if st.session_state.page == "Home":
                 ch_page("Book B")
     
     st.divider()
-    st.image("kitty_banner.jpg", caption="Digital Library Overview")
+    st.image("kitty_banner.jpg", caption="more books to come")
 
 # 2. BOOK TITLE A TAB
 elif st.session_state.page == "Book A":
-    st.title("📘 Book Title A")
+    st.title("That time i got reincarnated as a slime")
     
     # Space for Book & Author Info
     st.markdown("#### About the Book")
