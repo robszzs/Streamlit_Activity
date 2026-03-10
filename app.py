@@ -109,6 +109,9 @@ elif st.session_state.page == "Book B":
     st.divider()
     
     col_img, col_dl = st.columns([1, 2])
+
+    with col_img:
+        st.image("images/lovers_in_the_night.jpg", caption="All the Lovers in the Night")
     
     with col_dl:
         st.subheader("Download Book")
