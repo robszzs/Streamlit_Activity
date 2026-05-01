@@ -1,9 +1,12 @@
+#what language to sue
 language: python
 python:
   - "3.9"
 
+#what to do before install
 install:
   - pip install -r requirements.txt
 
+#what test to run
 script:
   - pytest
