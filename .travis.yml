@@ -1,11 +1,10 @@
 language: python
-python:
-  - "3.9"  # Or whichever version you're using
 
-# Install dependencies
+python:
+  - "3.10"
+
 install:
   - pip install -r requirements.txt
 
-# The command to run tests
 script:
-  - python -m pytest  # Or just 'python app.py' if you don't have tests yet
+  - python -m unittest discover
